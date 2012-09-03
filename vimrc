@@ -1,8 +1,16 @@
 syntax on
 
-set t_Co=16
+filetype off
+
+" Set up Vundle
+" This also includes all of the plugins I use
+"
+" Run :BundleInstall to install all of the plugins
+source ~/.vim/.vundle
+
 set background=dark
 colorscheme solarized
+
 " Change folding colors
 hi link Folded Statement
 hi link FoldColumn Statement
@@ -25,14 +33,6 @@ set mouse=a
 
 set gfn=Inconsolata\ For\ Powerline\ 15
 
-filetype off
-
-" Set up Vundle
-" This also includes all of the plugins I use
-"
-" Run :BundleInstall to install all of the plugins
-source ~/.vim/.vundle
-
 set conceallevel=2
 let g:tex_conceal="admgs"
 set autoread
@@ -45,6 +45,8 @@ set hidden
 set history=1000
 set autoread
 set backspace=indent,eol,start
+set scrolloff=5
+set sidescrolloff=10
 
 
 set autoindent  "Auto Indent code - This simply retains indentation level
@@ -101,7 +103,7 @@ set statusline+=%w   " Preview window flag.
 set statusline+=\    " Space.
 
 set statusline+=%#redbar#                " Highlight the following as a warning.
-set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
+"set statusline+=%{SyntasticStatuslineFlag()} " Syntastic errors.
 set statusline+=%*                           " Reset highlighting.
 
 set statusline+=%=   " Right align.
@@ -148,12 +150,12 @@ nnoremap <S-Tab> <C-w>W
 nnoremap <C-p> <C-i>
 
 "NERDTree
-map <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>v :NERDTreeFind<CR>
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
-map <Leader>// <plug>NERDCommenterAlignLeft
-map <Leader>/, <plug>NERDCommenterUncomment
+map <Leader>// <plug>NERDCommenterToggle
 
 "Gundo
 nmap <Leader>u :GundoToggle<CR>
@@ -232,7 +234,7 @@ endif
 " See ftplugin/*.vim
 
 function! g:GenTags()
-    echo system("ctags --extra=+f --exclude=.git --exclude=log -R * " . $GEM_HOME ."/gems/*")
+    echo system("ctags --exclude=.git --exclude=log -R * `bundle show rails`/../*")
 endfunction
 map <Leader>rt :call g:GenTags()<CR>
 
