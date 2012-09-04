@@ -2,6 +2,14 @@ syntax on
 
 filetype off
 
+let g:tagbar_type_coffee = {
+      \ 'ctagstype' : 'coffee',
+      \ 'kinds' : [
+      \   'f:functions',
+      \   'v:variables'
+      \ ],
+      \ }
+
 " Set up Vundle
 " This also includes all of the plugins I use
 "
