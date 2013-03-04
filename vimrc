@@ -176,8 +176,12 @@ vmap <Leader>t :Tabularize /
 
 " CtrlP
 let g:ctrlp_map = '<Leader>t'
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_max_files = 0
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]data$'
+  \ }
 nnoremap <leader>b :CtrlPBuffer<CR>
 set wildignore+=*.o,.git,*.jpg,*.png,*.swp,*.d,*.gif,*.pyc,node_modules,*.class,*.crf,*.hg,*.orig,.meteor
 
@@ -258,4 +262,24 @@ nmap <C-V> <F2>"+gP<F2>
 imap <C-V> <ESC><C-V>i
 vmap <C-C> "+y
 
-autocmd BufNewFile,BufRead *.json set ft=json
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+
+let g:coffee_compiler = '/home/asafg/projects/node/node-v0.6.6/node_modules/coffee-script/bin/coffee'
+
+augroup htmlabbrev
+  autocmd!
+  autocmd FileType html,haml :iabbrev <buffer> mdash &mdash;
+  autocmd FileType html,haml :iabbrev <buffer> nbsp &nbsp;
+  autocmd FileType html,haml :iabbrev <buffer> middot &middot;
+augroup END
+
+augroup json
+  autocmd!
+  autocmd BufNewFile,BufRead *.json set ft=json
+augroup END
+
+augroup vimrc
+  autocmd!
+  autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help " . expand("<cword>")<cr>
+augroup END
