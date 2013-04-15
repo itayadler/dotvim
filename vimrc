@@ -16,6 +16,8 @@ let g:tagbar_type_coffee = {
 " Run :BundleInstall to install all of the plugins
 source ~/.vim/.vundle
 
+set shell=/bin/sh
+
 set background=dark
 colorscheme solarized
 
@@ -264,6 +266,7 @@ vmap <C-C> "+y
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>rv :vsplit ~/.vim/.vundle<cr>
 
 let g:coffee_compiler = '/home/asafg/projects/node/node-v0.6.6/node_modules/coffee-script/bin/coffee'
 
@@ -283,3 +286,13 @@ augroup vimrc
   autocmd!
   autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help " . expand("<cword>")<cr>
 augroup END
+
+function! g:LoadProject(dir)
+  exe 'cd ' . a:dir
+  Rvm
+  NERDTree
+  normal <C-W><C-W>
+  CtrlP
+endfunction
+
+command! -complete=dir -nargs=1 Start call g:LoadProject(<f-args>)
