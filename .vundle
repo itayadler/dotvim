@@ -5,42 +5,59 @@ call vundle#rc()
 " let Vundle manage Vundle
 Bundle 'gmarik/vundle'
 
-" Bundles (plugins)
+" Vim UI
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'Shougo/neocomplcache'
-Bundle 'Shougo/vimproc'
-Bundle 'godlygeek/tabular'
-Bundle 'groenewege/vim-less'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
 Bundle 'rphillips/vim-zoomwin'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
+
+" Vim completion
+Bundle 'Shougo/neocomplcache'
+
+" Vim Script Utils
+Bundle 'Shougo/vimproc'
+
+" Editing
+Bundle 'godlygeek/tabular'
 Bundle 'sjl/gundo.vim'
-Bundle 'skammer/vim-css-color'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-rvm'
-Bundle 'tsaleh/vim-supertab'
+Bundle 'scrooloose/nerdcommenter'
 Bundle 'vim-scripts/matchit.zip'
 Bundle 'vim-scripts/YankRing.vim'
-Bundle 'wavded/vim-stylus'
-Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-rhubarb'
+Bundle 'AndrewRadev/splitjoin.vim'
+
+" Syntax highlighting
+Bundle 'groenewege/vim-less'
+Bundle 'skammer/vim-css-color'
+Bundle 'hail2u/vim-css3-syntax'
+Bundle 'kchmck/vim-coffee-script'
+
+" File management
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdtree'
 Bundle 'thisivan/vim-bufexplorer'
-Bundle 'skwp/vim-conque'
-Bundle 'skwp/vim-ruby-conque'
+Bundle 'tpope/vim-eunuch'
+Bundle 'sjbach/lusty'
+
+" Ruby support
+Bundle 'tpope/vim-rvm'
+
+" Git support
+Bundle 'tpope/vim-fugitive'
+
+" Utils
 Bundle 'duff/vim-scratch'
+Bundle 'mileszs/ack.vim'
+Bundle 'skwp/greplace.vim'
+Bundle 'vim-scripts/sudo.vim'
+Bundle 'vim-scripts/AutoTag'
+Bundle 'majutsushi/tagbar'
+
+" Bundles
+Bundle 'tpope/vim-rails'
+
+" Text objects
+Bundle 'kana/vim-textobj-user'
 Bundle 'austintaylor/vim-indentobject'
 Bundle 'bootleq/vim-textobj-rubysymbol'
-Bundle 'vim-scripts/sudo.vim'
 Bundle 'vim-scripts/argtextobj.vim'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'kana/vim-textobj-user'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'sjbach/lusty'
+

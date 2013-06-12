@@ -20,6 +20,10 @@ Follow the instructions in `~/.vim/bundle/vim-powerline` to patch your font.
 ### CoffeeCompile
 edit `g:coffee_compiler` in `~/dotvim/vimrc` to point to your CoffeeScript binary.
 
+### VimProc
+Needs to be compiled.
+see the vimproc readme for help
+
 
 ## :Start
 
