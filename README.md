@@ -32,3 +32,10 @@ see the vimproc readme for help
   * run rvm
   * open NERDTree
   * open CtrlP
+
+## ackrc
+I also added my .ackrc file to the repo
+```
+cd ~
+ln -s dotvim/.ackrc .ackrc
+```
