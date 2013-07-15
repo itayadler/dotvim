@@ -146,11 +146,12 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_clear_cache_on_exit = 1
 let g:ctrlp_max_files = 0
 let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]data$'
+  \ 'dir': '\v([\/]data$)|(source_maps)'
   \ }
 nnoremap <leader>b :CtrlPBuffer<CR>
 set wildignore+=*.o,.git,*.jpg,*.png,*.swp,*.d,*.gif,*.pyc,node_modules,*.class,*.crf,*.hg,*.orig,.meteor
 set wildignore+=source_maps
+set wildignore+=coverage
 
 " Yankring
 nnoremap <silent> <leader>y :YRShow<CR>
@@ -159,7 +160,7 @@ nnoremap <silent> <leader>y :YRShow<CR>
 set completeopt=longest,menuone,preview
 set omnifunc=syntaxcomplete#Complete
 "inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Neocomplcache
 " Disable AutoComplPop.
@@ -197,7 +198,7 @@ function! g:GenTags()
 endfunction
 map <Leader>rt :call g:GenTags()<CR>
 
-let g:ackprg="ack-grep -H --nocolor --nogroup --column"
+let g:ackprg="ack -H --nocolor --nogroup --column"
 nnoremap <leader>sc :Ack --coffee 
 nnoremap <leader>sr :Ack --ruby 
 
@@ -207,9 +208,13 @@ set pastetoggle=<F2>
 set showmode
 
 " copy/paste stuff
-nmap <leader><C-V> <F2>"+gP<F2>
-imap <C-V> <ESC><C-V>i
+nmap <leader><C-V> <F2>"+gp<F2>
+imap <C-V> <ESC><F2>"+gP<F2>i
 vmap <leader><C-C> "+y
+
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=#002129 ctermbg=3
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=#002b36 ctermbg=4
 
 command! Vimrc vsplit $MYVIMRC
 command! VimrcReload source $MYVIMRC
@@ -231,7 +236,7 @@ augroup END
 
 augroup vimrc
   autocmd!
-  autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help '" . expand("<cword>") . "'"<cr>
+  autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help " . expand("<cword>")<cr>
 augroup END
 
 function! g:LoadProject(dir)

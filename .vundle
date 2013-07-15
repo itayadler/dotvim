@@ -24,12 +24,15 @@ Bundle 'vim-scripts/YankRing.vim'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'tpope/vim-surround'
 Bundle 'AndrewRadev/splitjoin.vim'
+Bundle 'vim-scripts/DrawIt'
 
 " Syntax highlighting
 Bundle 'groenewege/vim-less'
 Bundle 'skammer/vim-css-color'
 Bundle 'hail2u/vim-css3-syntax'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 " File management
 Bundle 'kien/ctrlp.vim'
@@ -40,6 +43,7 @@ Bundle 'sjbach/lusty'
 
 " Ruby support
 Bundle 'tpope/vim-rvm'
+Bundle 'skwp/vim-ruby-conque'
 
 " Git support
 Bundle 'tpope/vim-fugitive'
@@ -51,6 +55,7 @@ Bundle 'skwp/greplace.vim'
 Bundle 'vim-scripts/sudo.vim'
 Bundle 'vim-scripts/AutoTag'
 Bundle 'majutsushi/tagbar'
+Bundle 'carlobaldassi/ConqueTerm'
 
 " Bundles
 Bundle 'tpope/vim-rails'
