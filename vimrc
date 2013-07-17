@@ -202,6 +202,9 @@ let g:ackprg="ack -H --nocolor --nogroup --column"
 nnoremap <leader>sc :Ack --coffee 
 nnoremap <leader>sr :Ack --ruby 
 
+vnoremap > >gv
+vnoremap < <gv
+
 " paste toggle
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
