@@ -10,7 +10,7 @@ Bundle 'Lokaltog/vim-powerline'
 Bundle 'rphillips/vim-zoomwin'
 
 " Vim completion
-Bundle 'Shougo/neocomplcache'
+Bundle 'Shougo/neocomplcache.vim'
 
 " Vim Script Utils
 Bundle 'Shougo/vimproc'

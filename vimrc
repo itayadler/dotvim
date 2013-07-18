@@ -251,3 +251,9 @@ function! g:LoadProject(dir)
 endfunction
 
 command! -complete=dir -nargs=1 Start call g:LoadProject(<f-args>)
+
+function! g:GemList(ArgLoad, CmdLine, CursorPos)
+  return system("cat Gemfile | grep \"^\s*gem\" | sed -e \"s/\s*gem '\\([^']\\+\\)'.*/\\1/\"")
+endfunction
+
+command! -complete=custom,g:GemList -nargs=1 GemOpen :execute "e `bundle show " . <f-args> . "`"
