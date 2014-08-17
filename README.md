@@ -10,7 +10,17 @@ ln -s dotvim/vimrc .vimrc
 cd .vim
 git submodule init
 git submodule update
-vim +BundleInstall
+vim +PluginInstall
+```
+
+### Ag - The Silver Searcher
+Install `the_silver_searcher` on Mac or `silversearcher-ag` on Ubuntu.
+
+### YouCompleteMe
+See `bundle/YouCompleteMe/README.md`, but basically:
+```
+cd ~/.vim/bundle/YouCompleteMe
+./install.sh --clang-completer
 ```
 
 ### Font/Powerline
@@ -20,11 +30,6 @@ Follow the instructions in `~/.vim/bundle/vim-powerline` to patch your font.
 ### CoffeeCompile
 edit `g:coffee_compiler` in `~/dotvim/vimrc` to point to your CoffeeScript binary.
 
-### VimProc
-Needs to be compiled.
-see the vimproc readme for help
-
-
 ## :Start
 
 `:Start <dirname>` will do the following:
@@ -32,10 +37,3 @@ see the vimproc readme for help
   * run rvm
   * open NERDTree
   * open CtrlP
-
-## ackrc
-I also added my .ackrc file to the repo
-```
-cd ~
-ln -s dotvim/.ackrc .ackrc
-```

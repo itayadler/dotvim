@@ -1,9 +1,10 @@
+set nocompatible
 syntax on
 
 filetype off
 
-let g:vundle_changelog_file="~/.vim/vundle_change_log"
-let g:vundle_log_file="~/.vim/vundle_log"
+"let g:vundle_changelog_file="~/.vim/vundle_change_log"
+"let g:vundle_log_file="~/.vim/vundle_log"
 source ~/.vim/.vundle
 
 set shell=/bin/sh
@@ -71,6 +72,8 @@ set formatoptions=tcroqn1j
 
 set wildignore+=*/tmp/*
 
+set diffopt=filler,vertical
+
 filetype plugin on
 filetype indent on
 
@@ -132,9 +135,29 @@ nnoremap <S-Tab> <C-w>W
 " Mapping tab also remaps C-i, so make M-o do what C-i used to do
 nnoremap <M-o> <C-i>
 
+let g:vim_json_syntax_conceal = 0
+
 "NERDTree
 nmap <Leader>n :NERDTreeToggle<CR>
-nmap <Leader>v :NERDTreeFind<CR>
+nmap <Leader>vv :NERDTreeFind<CR>
+let g:NERDTreeRespectWildIgnore = 0
+
+" returns true iff is NERDTree open/active
+function! s:isNTOpen()
+  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
+endfunction
+
+" calls NERDTreeFind iff NERDTree is active, current window contains a modifiable file, and we're not in vimdiff
+function! s:syncTree()
+  if &modifiable && s:isNTOpen() && strlen(expand('%')) > 0 && expand('%') !~ "^/tmp" && !&diff && expand('%') !~ "\.git"
+    let l:curwinnr = winnr()
+    NERDTreeFind
+    normal zb
+    exec l:curwinnr . "wincmd w"
+  endif
+endfunction
+
+autocmd BufEnter * call s:syncTree()
 
 "NERDCommenter
 let g:NERDCreateDefaultMappings = 0
@@ -149,37 +172,12 @@ let g:ctrlp_custom_ignore = {
   \ 'dir': '\v([\/]data$)|(source_maps)'
   \ }
 nnoremap <leader>b :CtrlPBuffer<CR>
-set wildignore+=*.o,.git,*.jpg,*.png,*.swp,*.d,*.gif,*.pyc,node_modules,*.class,*.crf,*.hg,*.orig,.meteor
+set wildignore+=*.o,.git,*.jpg,*.png,*.swp,*.d,*.gif,*.pyc,node_modules,*.class,*.crf,*.hg,*.orig,.meteor,public\/build
 set wildignore+=source_maps
 set wildignore+=coverage
 
 " Yankring
 nnoremap <silent> <leader>y :YRShow<CR>
-
-" OmniCompletion
-set completeopt=longest,menuone,preview
-set omnifunc=syntaxcomplete#Complete
-"inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-
-" Neocomplcache
-" Disable AutoComplPop.
-let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Set minimum syntax keyword length.
-let g:neocomplcache_min_syntax_length = 3
-
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 
 " SnipMate
 let g:snippets_dir="~/.vim/snippets/,~/.vim/bundle/snipmate.vim/snippets/"
@@ -194,13 +192,11 @@ if has("gui_running")
 endif
 
 function! g:GenTags()
-    echo system("ctags --exclude=.git --exclude=log -R * `bundle show rails`/../*")
+    echo system("ctags --exclude=.git --exclude=log -R * `echo $GEM_PATH | sed \"s/:/\\/gems\\/* /\" | sed \"s/$/\\/gems\\/*/\"`")
 endfunction
 map <Leader>rt :call g:GenTags()<CR>
 
-let g:ackprg="ack -H --nocolor --nogroup --column"
-nnoremap <leader>sc :Ack --coffee 
-nnoremap <leader>sr :Ack --ruby 
+let g:agprg="ag --column --smart-case"
 
 vnoremap > >gv
 vnoremap < <gv
@@ -223,7 +219,7 @@ command! Vimrc vsplit $MYVIMRC
 command! VimrcReload source $MYVIMRC
 command! VundleEdit vsplit ~/.vim/.vundle
 
-let g:coffee_compiler = '/home/asafg/projects/node/node-v0.6.6/node_modules/coffee-script/bin/coffee'
+let g:coffee_compiler = '/usr/bin/coffee'
 
 augroup htmlabbrev
   autocmd!
@@ -242,6 +238,15 @@ augroup vimrc
   autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help " . expand("<cword>")<cr>
 augroup END
 
+augroup my_fugitive
+  autocmd!
+  autocmd Filetype gitcommit :set nolist
+augroup END
+
+" Creates a vertical split that continues the current file from the bottom of
+" the buffer
+noremap <silent> <Leader>vs :<C-u>let @z=&so<CR>:set so=0 noscb<CR>:bo vs<CR>Ljzt:setl scb<CR><C-w>p:setl scb<CR>:let &so=@z<CR>
+
 function! g:LoadProject(dir)
   exe 'cd ' . a:dir
   Rvm
@@ -257,3 +262,5 @@ function! g:GemList(ArgLoad, CmdLine, CursorPos)
 endfunction
 
 command! -complete=custom,g:GemList -nargs=1 GemOpen :execute "e `bundle show " . <f-args> . "`"
+
+command! -nargs=1 Hip :execute "silent !curl --data \"room_id=/dev/zero&from=Vim&message=" . <f-args> . "\" \"http://api.hipchat.com/v1/rooms/message?format=json&auth_token=baa4a52577bb53a90e73dbc948344c\""

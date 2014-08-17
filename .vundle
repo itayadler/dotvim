@@ -3,66 +3,66 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " Vim UI
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'rphillips/vim-zoomwin'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'rphillips/vim-zoomwin'
 
 " Vim completion
-Bundle 'Shougo/neocomplcache.vim'
+Plugin 'Valloric/YouCompleteMe'
 
 " Vim Script Utils
-Bundle 'Shougo/vimproc'
+Plugin 'Shougo/vimproc'
 
 " Editing
-Bundle 'godlygeek/tabular'
-Bundle 'sjl/gundo.vim'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'vim-scripts/YankRing.vim'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-surround'
-Bundle 'AndrewRadev/splitjoin.vim'
-Bundle 'vim-scripts/DrawIt'
+Plugin 'sjl/gundo.vim'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'vim-scripts/YankRing.vim'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-abolish'
+Plugin 'AndrewRadev/splitjoin.vim'
 
 " Syntax highlighting
-Bundle 'groenewege/vim-less'
-Bundle 'skammer/vim-css-color'
-Bundle 'hail2u/vim-css3-syntax'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
+Plugin 'groenewege/vim-less'
+Plugin 'skammer/vim-css-color'
+Plugin 'hail2u/vim-css3-syntax'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'elzr/vim-json'
 
 " File management
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'thisivan/vim-bufexplorer'
-Bundle 'tpope/vim-eunuch'
-Bundle 'sjbach/lusty'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'thisivan/vim-bufexplorer'
+Plugin 'tpope/vim-eunuch'
+Plugin 'sjbach/lusty'
 
 " Ruby support
-Bundle 'tpope/vim-rvm'
-Bundle 'skwp/vim-ruby-conque'
+Plugin 'tpope/vim-rvm'
 
 " Git support
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 
 " Utils
-Bundle 'duff/vim-scratch'
-Bundle 'mileszs/ack.vim'
-Bundle 'skwp/greplace.vim'
-Bundle 'vim-scripts/sudo.vim'
-Bundle 'vim-scripts/AutoTag'
-Bundle 'majutsushi/tagbar'
-Bundle 'carlobaldassi/ConqueTerm'
+Plugin 'duff/vim-scratch'
+Plugin 'rking/ag.vim'
+Plugin 'skwp/greplace.vim'
+Plugin 'vim-scripts/sudo.vim'
+Plugin 'vim-scripts/AutoTag'
+Plugin 'majutsushi/tagbar'
 
 " Bundles
-Bundle 'tpope/vim-rails'
+Plugin 'tpope/vim-rails'
 
 " Text objects
-Bundle 'kana/vim-textobj-user'
-Bundle 'austintaylor/vim-indentobject'
-Bundle 'bootleq/vim-textobj-rubysymbol'
-Bundle 'vim-scripts/argtextobj.vim'
+Plugin 'kana/vim-textobj-user'
+Plugin 'austintaylor/vim-indentobject'
+Plugin 'bootleq/vim-textobj-rubysymbol'
+Plugin 'vim-scripts/argtextobj.vim'
 
+" Markdown
+Plugin 'Valloric/vim-instant-markdown'
