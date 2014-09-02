@@ -1,6 +1,6 @@
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'gmarik/vundle'
@@ -66,3 +66,5 @@ Plugin 'vim-scripts/argtextobj.vim'
 
 " Markdown
 Plugin 'Valloric/vim-instant-markdown'
+
+call vundle#end()
