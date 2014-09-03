@@ -57,3 +57,5 @@ augroup vimrc
   autocmd!
   autocmd Filetype vim :nnoremap <buffer> <leader>h :execute "help " . expand("<cword>")<cr>
 augroup END
+
+nnoremap <Leader>gm :GMoveFile <C-R>=expand("%")<CR>

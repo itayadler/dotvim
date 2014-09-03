@@ -1,5 +1,5 @@
 set mouse=a
-set gfn=Inconsolata\ For\ Powerline\ 15
+set gfn=Meslo\ LG\ L\ DZ\ Regular\ for\ Powerline:h15
 
 " Showing whitespace
 set list listchars=tab:▷⋅,trail:·

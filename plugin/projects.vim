@@ -9,5 +9,5 @@ endfunction
 command! -complete=dir -nargs=1 Start call g:LoadProject(<f-args>)
 
 " Projects
-command! Vision call g:LoadProject("~/projects/vision")
-command! VisionEbayApi call g:LoadProject("~/projects/vision-ebay-api")
+command! Vision call g:LoadProject("~/Development/vision")
+command! VisionEbayApi call g:LoadProject("~/Development/vision-ebay-api")
