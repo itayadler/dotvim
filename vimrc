@@ -7,7 +7,8 @@ source ~/.vim/.vundle
 
 set shell=/bin/sh
 
-colorscheme getfresh
+set background=dark
+colorscheme solarized
 
 filetype plugin on
 filetype indent on
