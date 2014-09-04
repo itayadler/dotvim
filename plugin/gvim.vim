@@ -1,5 +1,4 @@
 set mouse=a
-set gfn=Meslo\ LG\ L\ DZ\ Regular\ for\ Powerline:h15
 
 " Showing whitespace
 set list listchars=tab:▷⋅,trail:·

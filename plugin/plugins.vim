@@ -17,7 +17,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 " Coffeescript
-let g:coffee_compiler = '/usr/local/bin/coffee'
+let g:coffee_compiler = $VIM_COFFEE_BIN
 
 " Ag
 let g:agprg="ag --column --smart-case"

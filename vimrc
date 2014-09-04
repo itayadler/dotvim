@@ -1,3 +1,4 @@
+source ~/.vim/.env
 set nocompatible
 syntax on
 

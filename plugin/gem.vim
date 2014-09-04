@@ -3,4 +3,3 @@ function! g:GemList(ArgLoad, CmdLine, CursorPos)
 endfunction
 
 command! -complete=custom,g:GemList -nargs=1 GemOpen :execute "e `bundle show " . <f-args> . "`"
-

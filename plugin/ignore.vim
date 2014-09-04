@@ -19,4 +19,3 @@ set wildignore+=*.crf
 set wildignore+=*.hg
 set wildignore+=*.orig
 set wildignore+=.meteor
-

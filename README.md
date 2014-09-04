@@ -8,6 +8,7 @@ git clone git://github.com/AsafGartner/dotvim.git
 ln -s dotvim .vim
 ln -s dotvim/vimrc .vimrc
 cd .vim
+cp ~/.env_sample ~/.env
 git submodule init
 git submodule update
 vim +PluginInstall
@@ -26,9 +27,10 @@ cd ~/.vim/bundle/YouCompleteMe
 ### Font/Powerline
 I set it up to use a modified version of Inconsolata.
 Follow the instructions in `~/.vim/bundle/vim-powerline` to patch your font.
+Customize your `~/.vim/.env` file to have your font of choice.
 
 ### CoffeeCompile
-edit `g:coffee_compiler` in `~/dotvim/vimrc` to point to your CoffeeScript binary.
+Customize your `~/.vim/.env` file to have $VIM_COFFEE_BIN to point to your CoffeeScript binary.
 
 ## :Start
 
