@@ -1,0 +1,67 @@
+call plug#begin('~/.vim/plugged')
+
+" Vim UI
+Plug 'Lokaltog/vim-powerline'
+Plug 'rphillips/vim-zoomwin'
+
+" Vim completion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
+" Vim Script Utils
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+
+" Editing
+Plug 'sjl/gundo.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/matchit.zip'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-abolish'
+Plug 'AndrewRadev/splitjoin.vim'
+
+" Syntax highlighting
+Plug 'flazz/vim-colorschemes'
+Plug 'groenewege/vim-less'
+Plug 'skammer/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'kchmck/vim-coffee-script'
+Plug 'digitaltoad/vim-jade'
+Plug 'leafgarland/typescript-vim'
+Plug 'elzr/vim-json'
+
+" File management
+Plug 'kien/ctrlp.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'jistr/vim-nerdtree-tabs'
+Plug 'thisivan/vim-bufexplorer'
+Plug 'tpope/vim-eunuch'
+Plug 'sjbach/lusty'
+
+" Ruby support
+Plug 'tpope/vim-rvm'
+
+" Git support
+Plug 'tpope/vim-fugitive'
+
+" Utils
+Plug 'duff/vim-scratch'
+Plug 'rking/ag.vim'
+Plug 'skwp/greplace.vim'
+Plug 'vim-scripts/sudo.vim'
+Plug 'vim-scripts/AutoTag'
+Plug 'majutsushi/tagbar'
+
+" Bundles
+Plug 'tpope/vim-rails'
+
+" Text objects
+Plug 'kana/vim-textobj-user'
+Plug 'austintaylor/vim-indentobject'
+Plug 'bootleq/vim-textobj-rubysymbol'
+Plug 'vim-scripts/argtextobj.vim'
+
+" Markdown
+Plug 'Valloric/vim-instant-markdown'
+
+call plug#end()

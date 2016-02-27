@@ -4,7 +4,7 @@ syntax on
 
 filetype off
 
-source ~/.vim/.vundle
+source ~/.vim/.vimplug
 
 set shell=/bin/sh
 
@@ -21,7 +21,5 @@ let maplocalleader=","
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
 set foldtext=getline(v:foldstart)
-
-command! VundleEdit vsplit ~/.vim/.vundle
 
 " See plugins folder for more

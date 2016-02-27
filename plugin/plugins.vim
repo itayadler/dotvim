@@ -3,6 +3,11 @@ let g:vim_json_syntax_conceal = 0
 
 " NERDTree
 let g:NERDTreeRespectWildIgnore = 0
+let g:NERDTreeShowHidden = 1
+let g:NERDTreeMapToggleHidden = 0
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_autofind=1
 
 " NERDCommenter
 let g:NERDCreateDefaultMappings = 0
