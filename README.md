@@ -4,25 +4,19 @@ dotvim
 ## Setup
 ```
 cd ~
-git clone git://github.com/AsafGartner/dotvim.git
+git clone git://github.com/itayadler/dotvim.git
 ln -s dotvim .vim
 ln -s dotvim/vimrc .vimrc
-cd .vim
-cp ~/.env_sample ~/.env
-git submodule init
-git submodule update
-vim +PluginInstall
+vim +PlugInstall
 ```
+You can set up some customization variables in .env
+$VIM_COFFEE_BIN - Set up your coffeescript binary folder.
+$VIM_PROJECT_DIR - Set up your projects for the custom `Start`
+project command
+`cp ~/.vim/.env_sample ~/.vim/.env`
 
 ### Ag - The Silver Searcher
 Install `the_silver_searcher` on Mac or `silversearcher-ag` on Ubuntu.
-
-### YouCompleteMe
-See `bundle/YouCompleteMe/README.md`, but basically:
-```
-cd ~/.vim/bundle/YouCompleteMe
-./install.sh --clang-completer
-```
 
 ### Font/Powerline
 I set it up to use a modified version of Inconsolata.
@@ -36,6 +30,5 @@ Customize your `~/.vim/.env` file to have $VIM_COFFEE_BIN to point to your Coffe
 
 `:Start <dirname>` will do the following:
   * cd to `dirname`
-  * run rvm
   * open NERDTree
   * open CtrlP
