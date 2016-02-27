@@ -10,9 +10,14 @@ ln -s dotvim/vimrc .vimrc
 vim +PlugInstall
 ```
 You can set up some customization variables in .env
+
 $VIM_COFFEE_BIN - Set up your coffeescript binary folder.
-$VIM_PROJECT_DIR - Set up your projects for the custom `Start`
-project command
+
+$VIM_PROJECT_DIR - Set up your projects dir for `:Start`
+
+
+Project commands:
+
 `cp ~/.vim/.env_sample ~/.vim/.env`
 
 ### Ag - The Silver Searcher
